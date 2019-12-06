@@ -25,10 +25,7 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pwd 
-            ls -l
             cd project-ml-microservice-kubernetes
-            ls -l
             make install
             # Install hadolint
             wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
@@ -37,3 +34,9 @@ jobs:
           paths:
           - ./venv
           key: v1-dependencies-{{ checksum "project-ml-microservice-kubernetes/requirements.txt" }}
+      # run lint!
+      - run:
+          name: run lint
+          command: |
+            . venv/bin/activate
+            make lint 
