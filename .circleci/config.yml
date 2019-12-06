@@ -25,7 +25,9 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pwd
+            pwd 
+            ls -l
+            cd project-ml-microservice-kubernetes
             ls -l
             make install
             # Install hadolint
